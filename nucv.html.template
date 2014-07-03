@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='ja' xml:lang='ja'>
+<head>
+  <title>Not Unifiable Components</title>
+  <base target='kanjidb' />
+  <link rel='stylesheet' type='text/css' href='pdf.css' />
+  <link rel='stylesheet' type='text/css' href='iwds.css'/>
+</head>
+<body data-type="book">
+  <section data-type="titlepage">
+    <h1>
+      UCS Ideograph Non-Unifiable Component Variations List (NUCV)
+    </h1>
+    <h2 data-type="author">ISO/IEC JTC 1/SC 2/WG 2 IRG</h2>
+  </section>
+  <section data-type='chapter' id='main'>
+    <h1>Not-Unifiable Components</h1>
+    <table>
+    <!--main-->
+    </table>
+  </section>
+</body>
+</html>

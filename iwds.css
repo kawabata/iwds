@@ -1,0 +1,95 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+table {
+	/*margin: 0 20px 0.5em 20px;*/
+         margin: 0;
+	/* border-collapse: separate; */
+	border-collapse: collapse;
+	border-spacing: 1px;
+	border: 1px solid #cfd3d6;
+	background-color: #fdfdfd; /*#fff;*/
+	/* position: relative; */
+	z-index: 3;
+}
+
+th,
+td {
+	padding: 0.1em 5px;
+	border: 1px solid #efefef;
+	border-color: #efefef #dce0e3 #dce0e3 #efefef;
+}
+
+th {
+	color: #000;
+	background-color: #eff0f1;
+}
+
+td {
+	border: 1px solid #ddd;
+	background-color: #fff;
+}
+
+thead * {
+	font-weight: bold;
+}
+th, td {
+	border: #222 1px solid;
+	vertical-align: top;
+	padding: 4px;
+	empty-cells: show;
+}
+body {
+  margin-left: 0;
+}
+/* Overriding default CSS settings */
+h1 {
+        color: #000;
+        font-size: 1.2em;
+        padding: 0;
+        margin: 0;
+        text-shadow: none;
+}
+h2 {
+        color: #000;
+        background: #fff;
+        padding: 0;
+        margin: 0;
+        font-size: 1.0em;
+        letter-spacing: 0;
+}
+/* Main Section Width */
+div#main {
+        min-width: 45em;
+}
+/* Main Table */
+table {
+        border: 2px solid;
+}
+th, td{
+        border:1px solid;
+        padding: 2px;
+        empty-cells: show;
+  text-align: left;
+}
+table table {
+        /* position: relative; */
+        min-width: 0em;
+        margin: 0;
+        border: 0px none;
+        text-align: center;
+}
+table table th, table table td {
+        border:0;
+        padding: 1px;
+}
+table.main > tr > td:first-child {
+  width: 20px;
+  vertical-align: top;
+}
+table.main > tr > td:nth-child(2) {
+  width: 90px;
+  vertical-align: top;
+}

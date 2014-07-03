@@ -1,0 +1,48 @@
+start = element ucv {
+  (entry | group | subgroup)+
+}
+
+group = element group {
+  attribute id {text},
+  attribute ja {text}?,
+  attribute en {text},
+  (subgroup+ | entry+ )
+}
+
+subgroup = element subgroup {
+  attribute id {text},
+  attribute ja {text}?,
+  attribute en {text},
+  entry+
+}
+
+entry = element entry {
+  attribute id {text},
+  attribute kind {text}?,
+  element glyphs {text},
+  element components {text},
+  # Unification types
+  element annexs {text}?,
+  element jis {text}?,
+  element hydcd {text}?,
+  # normative
+  element disunified {text}?,
+  element SourceCodeSeparation {text}?,
+  element unified {text}?,
+  element compatibles {text}?,
+  # element duplicates {text}?,
+  element references {text}?,
+  # non-unifiable data
+  element single {
+    (attribute char {text} |
+     attribute glyph {text}),
+    text
+  }*,
+  # misc. character data
+  element supercjk {text}?,
+  element jisx0212 {text}?,
+  element jisx0213 {text}?,
+  # element knightley {text}?,
+  element note {text}?,
+  element memo {text}?
+}

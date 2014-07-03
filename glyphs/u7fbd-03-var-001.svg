@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 200 200" width="200" height="200">
+<g fill="black">
+<polygon points="21,25 84,25 84,29 21,29 " />
+<polygon points="90,27 90,78 78,84 78,27 " />
+<polygon points="78,25 84,20 95,29 90,33 78,27 " />
+<polygon points="21,46 84,46 84,50 21,50 " />
+<polygon points="21,68 84,68 84,72 21,72 " />
+<polygon points="111,25 173,25 173,29 111,29 " />
+<polygon points="179,27 179,78 167,84 167,27 " />
+<polygon points="167,25 173,20 184,29 179,33 167,27 " />
+<polygon points="111,46 173,46 173,50 111,50 " />
+<polygon points="111,68 173,68 173,72 111,72 " />
+</g>
+</svg>

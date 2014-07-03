@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 200 200" width="200" height="200">
+<g fill="black">
+<polygon points="36,28 36,51 24,51 24,28 " />
+<polygon points="30,28 50,28 50,32 30,32 " />
+<polygon points="60,28 80,28 80,32 60,32 " />
+<polygon points="90,28 110,28 110,32 90,32 " />
+<polygon points="120,28 140,28 140,32 120,32 " />
+<polygon points="150,28 170,28 170,32 150,32 " />
+<polygon points="176,28 176,51 164,51 164,28 " />
+<polygon points="36,59 36,81 24,81 24,59 " />
+<polygon points="36,89 36,111 24,111 24,89 " />
+<polygon points="36,119 36,141 24,141 24,119 " />
+<polygon points="36,149 36,172 24,172 24,149 " />
+<polygon points="30,168 50,168 50,172 30,172 " />
+<polygon points="60,168 80,168 80,172 60,172 " />
+<polygon points="90,168 110,168 110,172 90,172 " />
+<polygon points="120,168 140,168 140,172 120,172 " />
+<polygon points="176,149 176,172 164,172 164,149 " />
+<polygon points="150,168 170,168 170,172 150,172 " />
+<polygon points="176,59 176,81 164,81 164,59 " />
+<polygon points="176,89 176,111 164,111 164,89 " />
+<polygon points="176,119 176,141 164,141 164,119 " />
+<polygon points="76,64 76,79 64,79 64,64 " />
+<polygon points="70,64 80,64 80,68 70,68 " />
+<polygon points="90,64 110,64 110,68 90,68 " />
+<polygon points="120,64 140,64 140,68 120,68 " />
+<polygon points="150,64 170,64 170,68 150,68 " />
+<polygon points="76,87 76,109 64,109 64,87 " />
+<polygon points="76,117 76,139 64,139 64,117 " />
+<polygon points="76,149 76,172 64,172 64,149 " />
+</g>
+</svg>
