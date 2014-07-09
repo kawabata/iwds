@@ -26,10 +26,10 @@
 
 1. Run the following in console.
 
-    % cask install
-    % cask run emacs --script iwds.el
+```
+% cask install
+% cask run emacs --script iwds.el
+```
 
-ucv.html and nucv.html will be produced.
-
-2. Convert HTML files to PDF files by HTML publication tools.
-
+Then, `ucv.html` and `nucv.html` will be produced. Convert HTML files to
+PDF files by HTML publication tool.
