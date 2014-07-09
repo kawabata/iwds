@@ -5,7 +5,7 @@
 ;; Filename: iwds.el
 ;; Description: IRG Working Documents Standards
 ;; Author: KAWABATA, Taichi <kawabata.taichi_at_gmail.com>
-;; Version: 1.140703
+;; Version: 1.140709
 ;; Keywords: i18n languages tools
 ;; Human-Keywords: Ideographic Rapporteur Group
 ;; URL: https://github.com/kawabata/iwds
@@ -15,6 +15,9 @@
 ;; This will produce the IWDS document series.
 
 ;;; Code
+
+(require 'bytecomp)
+(require 'cl-lib)
 
 (require 'dash)
 
@@ -41,19 +44,35 @@
             (subgroup . iwds-proc-nothing)
             (entry . iwds-proc-ucv-entry)))))
 (defvar iwds-image-size-factor 9)
+(defvar iwds-image-size-table nil)
 
 ;;; Main
 (defun iwds-generate-files ()
   "Generate Various files."
   (interactive)
   (iwds-parse-xml-file)
+  (iwds-image-size-table)
   (iwds-generate-file iwds-ucv-html 'ucv "^unifiable$")
   (iwds-generate-file iwds-nucv-html 'nucv "^not-unifiable$"))
 
 (defun iwds-parse-xml-file ()
   "Load UCV XML Data."
-  (interactive)
-  (setq iwds-xml-data (cdddar (xml-parse-file iwds-xml-file))))
+  (setq iwds-xml-data (cl-cdddar (xml-parse-file iwds-xml-file))))
+
+(defun iwds-image-size-table ()
+  "Obtain image file size."
+  (setq iwds-image-size-table (make-hash-table :test 'equal))
+  (dolist (dir (list "supercjk" "ucs2003" "ucs2012"))
+    (with-temp-buffer
+      (let ((dir (expand-file-name dir iwds-directory)))
+        (cd dir)
+        (if (/= (shell-command "identify *.png" (current-buffer)) 0)
+            (error "No image file found!"))
+        (goto-char (point-min))
+        (while (re-search-forward "^\\(.+?\\.png\\).*x\\([0-9]+\\)" nil t)
+          (puthash (expand-file-name (match-string 1) dir)
+                   (string-to-number (match-string 2))
+                   iwds-image-size-table))))))
 
 (defun iwds-generate-file (file func-set regexp)
   "Generate FILE by FUNC-SET and REGEXP."
@@ -155,7 +174,7 @@
 
 (defun iwds-proc-entry (xml-data)
   "Create entry data from XML-DATA."
-  (cl-labels ((\,. (key) (caddr (assoc key xml-data))))
+  (cl-labels ((\,. (key) (cl-caddr (assoc key xml-data))))
     `((:glyphs .
        ,(split-string ,.'glyphs "," t))
       (:components . ,(iwds-parse-chars ,.'components))
@@ -193,9 +212,7 @@
              (size (cl-case (car-safe char)
                      (supercjk 560)
                      (ucs2003  280)
-                     (t (cdr (image-size
-                         `(image :type png :file
-                                 ,(expand-file-name file iwds-directory)) t))))))
+                     (t (gethash (expand-file-name file iwds-directory) iwds-image-size-table)))))
         (insert (format "
           <td><img height='%d' src='%s' alt=''/></td>"
                         (/ size iwds-image-size-factor) file))))
@@ -231,6 +248,8 @@
 
 (defun iwds-proc-nothing (xml)
   (iwds-proc-xml (cddr xml)))
+
+(when noninteractive (iwds-generate-files))
 
 (provide 'iwds)
 

@@ -22,6 +22,14 @@
 
 # How to create the document.
 
-1. Run the following in Emacs.
-    M-x iwds-generate-files
-2. create PDF from generate files ucv.html and nucv.html.
+0. You need `identify`, `emacs` and `cask` commands installed.
+
+1. Run the following in console.
+
+    % cask install
+    % cask run emacs --script iwds.el
+
+ucv.html and nucv.html will be produced.
+
+2. Convert HTML files to PDF files by HTML publication tools.
+
