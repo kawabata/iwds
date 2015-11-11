@@ -33,6 +33,7 @@
         <glyphs>u34de-03,u34de-03-var-001,u34de-03-var-002,u34de-03-var-007</glyphs>
         <components>丰丯龶</components>
         <jis>4</jis>
+        <disunified>𦕴𦕥</disunified>
         <unified>契恝挈栔楔洯砉禊㓞…</unified>
         <compatibles>喫</compatibles>
         </entry>
@@ -542,7 +543,7 @@
         <jis>54,55</jis>
         <hydcd>09</hydcd>
         <disunified>当𢑐</disunified>
-        <unified>侵尋慧掃浸雪</unified>
+        <unified>彐侵尋慧掃浸雪</unified>
         <compatibles>婦掃浸穏</compatibles>
       </entry>
       <entry id="82" kind="unifiable">

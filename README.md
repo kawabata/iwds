@@ -28,7 +28,7 @@
 
 ```
 % cask install
-% cask run emacs --script iwds.el
+% cask exec emacs --script iwds.el
 ```
 
 Then, `ucv.html` and `nucv.html` will be produced. Convert HTML files to
