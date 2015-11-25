@@ -93,3 +93,8 @@ table.main > tr > td:nth-child(2) {
   width: 90px;
   vertical-align: top;
 }
+
+.invisible {
+  position:absolute;
+  z-index:-1;
+}

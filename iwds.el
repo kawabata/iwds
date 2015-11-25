@@ -5,7 +5,7 @@
 ;; Filename: iwds.el
 ;; Description: IRG Working Documents Standards
 ;; Author: KAWABATA, Taichi <kawabata.taichi_at_gmail.com>
-;; Version: 1.140731
+;; Version: 1.151125
 ;; Keywords: i18n languages tools
 ;; Human-Keywords: Ideographic Rapporteur Group
 ;; URL: https://github.com/kawabata/iwds
@@ -215,8 +215,9 @@
                      (t (gethash (expand-file-name file iwds-directory) iwds-image-size-table)))))
         (unless size (message "Image not found! %s" file) (setq size 0))
         (insert (format "
-          <td><img height='%d' src='%s' alt=''/></td>"
-                        (/ size iwds-image-size-factor) file))))
+          <td><div style='position:absolute; z-index:-1'>%c%05X</div>
+              <img height='%d' src='%s' alt=''/></td>"
+                        char char (/ size iwds-image-size-factor) file))))
     (insert "
         </tr>"))
   (insert "
