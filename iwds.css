@@ -85,12 +85,12 @@ table table th, table table td {
         border:0;
         padding: 1px;
 }
-table.main > tr > td:first-child {
-  width: 20px;
+table#main > tbody > tr > td:first-child {
+  width: 32px; /* 20px */
   vertical-align: top;
 }
-table.main > tr > td:nth-child(2) {
-  width: 90px;
+table#main > tbody > tr > td:nth-child(2) {
+  width: 80px; /* 26x3 */
   vertical-align: top;
 }
 
