@@ -5,7 +5,7 @@
 ;; Filename: iwds.el
 ;; Description: IRG Working Documents Standards
 ;; Author: KAWABATA, Taichi <kawabata.taichi_at_gmail.com>
-;; Version: 1.151125
+;; Version: 1.170728
 ;; Keywords: i18n languages tools
 ;; Human-Keywords: Ideographic Rapporteur Group
 ;; URL: https://github.com/kawabata/iwds
@@ -62,7 +62,7 @@
 (defun iwds-image-size-table ()
   "Obtain image file size of directories."
   (setq iwds-image-size-table (make-hash-table :test 'equal))
-  (dolist (dir (list "supercjk" "ucs2003" "ucs2014"))
+  (dolist (dir (list "supercjk" "ucs2003" "ucs2017"))
     (with-temp-buffer
       (let ((dir (expand-file-name dir iwds-directory)))
         (cd dir)
@@ -86,6 +86,8 @@
   (iwds-proc-xml iwds-xml-data)
   (with-temp-file file
     (insert-file-contents (concat file ".template"))
+    (when (search-forward "<!--date-->" nil t)
+      (insert (format-time-string "Version: %b/%d/%Y")))
     (when (search-forward "<!--toc-->\n" nil t)
       (insert (with-current-buffer iwds-toc-buffer (buffer-string))))
     (search-forward "<!--main-->\n")
@@ -165,7 +167,7 @@
          (mapcar 'list (remove ?… unified-chars))))
       (-when-let (note (assoc-default :note entry))
         (insert "
-      <hr widh='90%' size=4/>
+      <hr width='90%' size=4/>
       <h4>Note</h4>"
         note))
       (insert "
@@ -208,7 +210,7 @@
       (let* ((file (cl-case (car-safe char)
                      (supercjk (format "./supercjk/%05X.png" (cdr char)))
                      (ucs2003  (format "./ucs2003/%05X.png" (cdr char)))
-                     (t        (format "./ucs2014/%05X.png" char))))
+                     (t        (format "./ucs2017/%05X.png" char))))
              (size (cl-case (car-safe char)
                      (supercjk 560)
                      (ucs2003  280)
@@ -217,7 +219,9 @@
         (insert (format "
           <td><div style='position:absolute; z-index:-1'>%c%05X</div>
               <img height='%d' src='%s' alt=''/></td>"
-                        char char (/ size iwds-image-size-factor) file))))
+                        (if (consp char) (cdr char) char)
+                        (if (consp char) (cdr char) char)
+                        (/ size iwds-image-size-factor) file))))
     (insert "
         </tr>"))
   (insert "
@@ -243,7 +247,7 @@
                (pcase (char-after (match-beginning 1))
                  (`?* (cons 'ucs2003 (char-after (match-beginning 0))))
                  (`?# (cons 'supercjk (char-after (match-beginning 0))))
-                 (t (char-after (match-beginning 0))))
+                 (_ (char-after (match-beginning 0))))
                result))
             (nreverse result)))
       (string-to-list string))))
