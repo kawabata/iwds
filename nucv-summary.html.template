@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<html xmlns='http://www.w3.org/1999/xhtml' lang='ja' xml:lang='ja'>
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ lang="ja">
 <head>
-  <title>Not Unifiable Components</title>
-  <base target='kanjidb' />
+  <title>Unifiable Component Summary</title>
   <link rel='stylesheet' type='text/css' href='pdf.css' />
-  <link rel='stylesheet' type='text/css' href='iwds.css'/>
-</head>
+  <link rel='stylesheet' type='text/css' href='iwds-summary.css' />
+  </head>
 <body data-type="book">
   <section data-type="titlepage">
     <h1> UCS Ideograph Non-Unifiable Component Variations List (NUCV) </h1>
@@ -13,9 +13,7 @@
     <h3><!--date--></h3>
   </section>
   <section data-type='chapter' id='main'>
-  <table>
-    <!--main-->
-  </table>
-  </section>
+  <!--main-->
+</section>
 </body>
 </html>

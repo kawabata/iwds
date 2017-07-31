@@ -5,7 +5,7 @@
 ;; Filename: iwds.el
 ;; Description: IRG Working Documents Standards
 ;; Author: KAWABATA, Taichi <kawabata.taichi_at_gmail.com>
-;; Version: 1.170728
+;; Version: 1.170731
 ;; Keywords: i18n languages tools
 ;; Human-Keywords: Ideographic Rapporteur Group
 ;; URL: https://github.com/kawabata/iwds
@@ -29,9 +29,9 @@
 (defvar iwds-xml-data     nil)
 (defvar iwds-id-table     (make-hash-table :test 'equal))
 (defvar iwds-ucv-html     (expand-file-name "ucv.html" iwds-directory))
-;;(defvar iwds-ucv-summary  (expand-file-name "ucv-summary.html" iwds-directory))
 (defvar iwds-nucv-html    (expand-file-name "nucv.html" iwds-directory))
-;;(defvar iwds-nucv-summary (expand-file-name "nucv-summary.html" iwds-directory))
+(defvar iwds-ucv-summary-html  (expand-file-name "ucv-summary.html" iwds-directory))
+(defvar iwds-nucv-summary-html (expand-file-name "nucv-summary.html" iwds-directory))
 (defvar iwds-main-buffer  nil)
 (defvar iwds-toc-buffer   nil)
 (defvar iwds-regexp       nil)
@@ -42,7 +42,13 @@
             (entry . iwds-proc-ucv-entry)))
     (nucv . ((group . iwds-proc-nothing)
             (subgroup . iwds-proc-nothing)
-            (entry . iwds-proc-ucv-entry)))))
+            (entry . iwds-proc-ucv-entry)))
+    (ucv-summary . ((group . iwds-proc-ucv-summary-group)
+                    (subgroup . iwds-proc-ucv-summary-group)
+                    (entry . iwds-proc-ucv-summary-entry)))
+    (nucv-summary . ((group . iwds-proc-nothing)
+                     (subgroup . iwds-proc-nothing)
+                     (entry . iwds-proc-ucv-summary-entry)))))
 (defvar iwds-image-size-factor 9)
 (defvar iwds-image-size-table nil)
 
@@ -53,7 +59,10 @@
   (iwds-parse-xml-file)
   (iwds-image-size-table)
   (iwds-generate-file iwds-ucv-html 'ucv "^unifiable$")
-  (iwds-generate-file iwds-nucv-html 'nucv "^not-unifiable$"))
+  (iwds-generate-file iwds-nucv-html 'nucv "^not-unifiable$")
+  (iwds-generate-file iwds-ucv-summary-html 'ucv-summary "^unifiable$")
+  (iwds-generate-file iwds-nucv-summary-html 'nucv-summary "^not-unifiable$")
+  )
 
 (defun iwds-parse-xml-file ()
   "Load UCV XML Data of `iwds-xml-file'."
@@ -76,7 +85,6 @@
 
 (defun iwds-generate-file (file func-set regexp)
   "Generate FILE by FUNC-SET and REGEXP."
-  (when (file-exists-p file) (copy-file file (concat file ".bak") t))
   (when iwds-main-buffer (kill-buffer iwds-main-buffer))
   (when iwds-toc-buffer  (kill-buffer iwds-toc-buffer))
   (setq iwds-main-buffer (generate-new-buffer "*Main*")
@@ -87,14 +95,14 @@
   (with-temp-file file
     (insert-file-contents (concat file ".template"))
     (when (search-forward "<!--date-->" nil t)
-      (insert (format-time-string "Version: %b/%d/%Y")))
+      (replace-match (format-time-string "Version: %b/%d/%Y")))
     (when (search-forward "<!--toc-->\n" nil t)
       (insert (with-current-buffer iwds-toc-buffer (buffer-string))))
     (search-forward "<!--main-->\n")
     (insert (with-current-buffer iwds-main-buffer (buffer-string)))))
 
 (defun iwds-proc-xml (xml-data)
-  "Generate contents in `iwds-toc-buffer' and `iwds-main-buffer'."
+  "Generate contents in `iwds-toc-buffer' and `iwds-main-buffer' for XML-DATA."
   (dolist (xml xml-data)
     (if (listp xml)
         (funcall (assoc-default (car xml) iwds-proc-funcs) xml))))
@@ -173,6 +181,48 @@
       (insert "
     </td>
   </tr>")))))
+
+(defun iwds-proc-ucv-summary-group (xml)
+  "Process 'group' element of XML for UCV summary."
+  (let* ((attrs (cadr xml))
+         (id (assoc-default 'id attrs))
+         (en (assoc-default 'en attrs)))
+    (with-current-buffer iwds-toc-buffer
+      (insert "
+  <li><a href='#" id "'>" en "</a></li>"))
+    (with-current-buffer iwds-main-buffer
+      (insert (format "
+  </div>
+  <div id='%s'><h3>%s</h3></div>
+  <div class='multicol'>
+"
+                      id en)))
+    (iwds-proc-xml (cddr xml))))
+
+(defun iwds-proc-ucv-summary-entry (xml)
+  "Process 'entry' element of XML."
+  (let* ((attrs (cadr xml))
+         (id (assoc-default 'id attrs))
+         (kind (assoc-default 'kind attrs))
+         (entry (iwds-proc-entry (cddr xml))))
+    (when (string-match iwds-regexp kind)
+    (with-current-buffer iwds-main-buffer
+      (insert (format "
+  <table><tr id='%s'>
+    <td>%s</td>
+    <td>" id id))
+      (dolist (glyph (assoc-default :glyphs entry))
+        (insert (format "
+      <img height='26' width='26' src='./glyphs/%s.png'/>" glyph)))
+      (insert "
+    </td>
+    <td>")
+      (-when-let (unified-chars (assoc-default :unified entry))
+        (apply 'insert (mapcar (lambda (char) (if (characterp char) char (cdr char)))
+                               unified-chars)))
+      (insert "
+    </td>
+  </tr></table>")))))
 
 (defun iwds-proc-entry (xml-data)
   "Create entry data from XML-DATA."

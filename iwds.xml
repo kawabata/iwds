@@ -7,8 +7,8 @@
         <jis>1</jis>
         <disunified>任仼,壬王𡈼,抂𢪭,枉𣐅,狂狅,現𧠒,祍𥘛,紝𥿁,軖軠,迋𨑳,閏𨳝,頊𩑙,㕵𠰃,䚾𧥶,𡔞𤣴,𦬬𦬰,𨓏𨓒,𩂊𩂐,忹*𢗖*</disunified>
         <SourceCodeSeparation>丟丢</SourceCodeSeparation>
-        <compatibles>呈望望䏕䚾忹*</compatibles>
         <unified>壬廷徵朢澂程聖聽銩㸒䏕…</unified>
+        <compatibles>呈望望䏕䚾忹*</compatibles>
         </entry>
       <entry id="2" kind="unifiable">
         <glyphs>u820c,u820c-t</glyphs>
@@ -215,9 +215,8 @@
       <entry id="31" kind="pending">
         <glyphs>u6c34,u6c3a</glyphs>
         <components>水氺</components>
-        <unified>眔㴝</unified>
         <disunified>囦𡇋,娽𡝘,水氺,氽汆,渌𣵌,箓𥭼,㓼𠞘,㴝𪏭,𣷹𣸸,𧻦𧼇</disunified>
-        <duplicate>㴝𪏭</duplicate>
+        <unified>眔㴝</unified>
       </entry>
       <entry id="32" kind="unifiable">
         <glyphs>u7714-g,aj1-22050,u25133-t,u7714-var-001,u7714-var-004,u7714-var-003</glyphs>
@@ -418,8 +417,8 @@
       <entry id="61a" kind="unifiable">
         <glyphs>u6c38-ue0100,u6c38-ue0101,zihai-101007</glyphs>
         <components>永𣱵</components>
-        <unified>霡</unified>
         <disunified>銢𨥭</disunified>
+        <unified>霡</unified>
       </entry>
       <entry id="62" kind="unifiable">
         <glyphs>u4ea0-t,aj1-04110,u4ea0-03-var-001</glyphs>
@@ -755,8 +754,8 @@
       <entry id="112" kind="unifiable">
         <glyphs>aj1-05816,aj1-13357,aj1-02565,aj1-13854,koseki-017450,u771f-itaiji-004,u2f945</glyphs>
         <components>眞真</components>
-        <SourceCodeSeparation>塡填,巓巔,愼慎,槇槙,眞真,鎭鎮,顚顛,鷆鷏</SourceCodeSeparation>
         <disunified>窴𥧑</disunified>
+        <SourceCodeSeparation>塡填,巓巔,愼慎,槇槙,眞真,鎭鎮,顚顛,鷆鷏</SourceCodeSeparation>
         <unified>傎厧嗔寘搷滇瑱㒹</unified>
         <compatibles>寘嵮慎慎滇瑱瑱眞真真瞋磌磌衠鬒鬒㒹𥪧𥪧</compatibles>
         </entry>
@@ -830,7 +829,6 @@
         <disunified>圮圯,妃𡚱,屺𡵆,己巳,改攺,杞𣏌,汜𣲆,釲𨥈,魢𩵗,㞯𡵒,㰝𣢇,𡊈𡊓,𢚓𢚢,𤓿𤔂</disunified>
         <unified>包巷巽异起</unified>
         <compatibles>包巽抱港起</compatibles>
-        <disunified>巽𢁉</disunified>
         <jisx0212>圯圮,改攺</jisx0212>
         </entry>
       <entry id="122" kind="unifiable">
@@ -1819,8 +1817,11 @@
         <compatibles>拔跋鈸</compatibles>
         </entry>
       <entry id="256a" kind="not-unifiable">
-        <glyphs>u53cb-var-002,u72ae-g,aj1-18056</glyphs>
-        <components>友⿺友丶</components>
+        <glyphs>u53cb,u72ae-g</glyphs>
+        <components>友犮</components>
+        <note><![CDATA[
+        This item is introduced in IRG N2217.
+        ]]></note>
       </entry>
       <entry id="257" kind="pending">
         <glyphs>u5de9-g,u5de9,u5de9-var-001</glyphs>
@@ -2072,7 +2073,7 @@
         <SourceCodeSeparation>圎圓</SourceCodeSeparation>
         <compatibles>霣𤠔</compatibles>
         </entry>
-      <entry id="293-1" kind="unifiable">
+      <entry id="293" kind="unifiable">
         <glyphs>cdp-8845,u2ff1-u53e3-u27607,u2ff1-u53b6-u27607</glyphs>
         <components>⿱口𧘇⿱厶𧘇</components>
         <disunified>袁𡋡𡊮,逺遠</disunified>
@@ -2546,7 +2547,7 @@
         <glyphs>u7680,u209e2,cdp-8b7c</glyphs>
         <components>皀𠧢</components>
         <disunified>匓𠣿,廏𢋁,皀𠧢,㲃𣪘,𠛵𠜷</disunified>
-        <unified>匓</unified>
+        <unified>匓*</unified>
         </entry>
       <entry id="357" kind="unifiable">
         <glyphs>cdp-8b7c,cdp-8b7c-var-001</glyphs>
@@ -2783,8 +2784,8 @@
         <glyphs>u6649,u664b,u2f8cd</glyphs>
         <components>晉晋</components>
         <hydcd>67</hydcd>
-        <SourceCodeSeparation>戩戬,晉晋</SourceCodeSeparation>
         <disunified>瑨𤨁</disunified>
+        <SourceCodeSeparation>戩戬,晉晋</SourceCodeSeparation>
         <unified>榗溍瑨㬐𡺽𡦌𥰸…</unified>
         <compatibles>搢晉縉鄑</compatibles>
         </entry>
@@ -2814,7 +2815,7 @@
         <disunified>带帯</disunified>
         <unified>滞</unified>
       </entry>
-      <entry id="393-1" kind="unifiable">
+      <entry id="393" kind="unifiable">
         <glyphs>u9fb0,cdp-8961</glyphs>
         <components>龰</components>
         <disunified>走赱,足𠯁,縦𦂵</disunified>
