@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    margin-left: 0;
+}
+
+/* Table settings */
+table {
+    border-style: none;
+    /* margin: 0; */
+    border-collapse: collapse;
+    border-spacing: 1px;
+    z-index: 3;
+}
+
+th, td {
+    padding: 0.1em 5px;
+}
+
+td:first-child {
+  width: 40px; /* 20px */
+  vertical-align: top;
+}
+
+td:nth-child(2) {
+  width: 160px; /* 50x3 */
+  vertical-align: top;
+}
+
+/* Overriding default CSS settings */
+h1 {
+    color: #000;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+    text-shadow: none;
+}
+h2 {
+    color: #000;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    font-size: 1.0em;
+    letter-spacing: 0;
+}
+
+/* Columns */
+.multicol {
+    column-count: 2; /* 3 */
+    column-gap: 1em;
+}
+
+.singlecol {
+    column-count: 1;
+    column-gap: 1em;
+    clear: both;
+}
+
+.invisible {
+    position:absolute;
+    z-index:-1;
+}
