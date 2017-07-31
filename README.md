@@ -14,7 +14,7 @@
 * glyphs (glyph images)
 * supercjk (supercjk images)
 * ucs2003 (2003 images)
-* ucs2012 (2012 images)
+* ucs2017 (2017 images)
 
 ## not prepared yet
 
