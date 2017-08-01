@@ -5,7 +5,7 @@
 ;; Filename: iwds.el
 ;; Description: IRG Working Documents Standards
 ;; Author: KAWABATA, Taichi <kawabata.taichi_at_gmail.com>
-;; Version: 1.170731
+;; Version: 1.170801
 ;; Keywords: i18n languages tools
 ;; Human-Keywords: Ideographic Rapporteur Group
 ;; URL: https://github.com/kawabata/iwds
@@ -71,7 +71,7 @@
 (defun iwds-image-size-table ()
   "Obtain image file size of directories."
   (setq iwds-image-size-table (make-hash-table :test 'equal))
-  (dolist (dir (list "supercjk" "ucs2003" "ucs2017"))
+  (dolist (dir (list "supercjk" "ucs2003" "ucs2014" "ucs2017"))
     (with-temp-buffer
       (let ((dir (expand-file-name dir iwds-directory)))
         (cd dir)
@@ -260,6 +260,7 @@
       (let* ((file (cl-case (car-safe char)
                      (supercjk (format "./supercjk/%05X.png" (cdr char)))
                      (ucs2003  (format "./ucs2003/%05X.png" (cdr char)))
+                     (ucs2014  (format "./ucs2014/%05X.png" (cdr char)))
                      (t        (format "./ucs2017/%05X.png" char))))
              (size (cl-case (car-safe char)
                      (supercjk 560)
@@ -295,6 +296,7 @@
             (while (re-search-forward ".\\([*#]\\)?" nil t)
               (push
                (pcase (char-after (match-beginning 1))
+                 (`?$ (cons 'ucs2014 (char-after (match-beginning 0))))
                  (`?* (cons 'ucs2003 (char-after (match-beginning 0))))
                  (`?# (cons 'supercjk (char-after (match-beginning 0))))
                  (_ (char-after (match-beginning 0))))
