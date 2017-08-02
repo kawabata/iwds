@@ -3,9 +3,10 @@
 ;; Copyright (C) 2014 Kawabata Taichi
 
 ;; Filename: iwds.el
+;; Package-Requires: ((emacs "24.3") (dash "1.0.0"))
 ;; Description: IRG Working Documents Standards
 ;; Author: KAWABATA, Taichi <kawabata.taichi_at_gmail.com>
-;; Version: 1.170801
+;; Version: 1.170803
 ;; Keywords: i18n languages tools
 ;; Human-Keywords: Ideographic Rapporteur Group
 ;; URL: https://github.com/kawabata/iwds
@@ -288,12 +289,12 @@
 (defun iwds-parse-chars (string)
   "Parse characters in STRING."
   (when string
-    (if (string-match "[*#]" string)
+    (if (string-match "[*#$]" string)
         (with-temp-buffer
           (let (result)
             (insert string)
             (goto-char (point-min))
-            (while (re-search-forward ".\\([*#]\\)?" nil t)
+            (while (re-search-forward ".\\([*#$]\\)?" nil t)
               (push
                (pcase (char-after (match-beginning 1))
                  (`?$ (cons 'ucs2014 (char-after (match-beginning 0))))
