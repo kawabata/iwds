@@ -15,24 +15,29 @@
 
 ;; This will produce the IWDS document series.
 
-;;; Code
+;;; Code:
 
 (require 'bytecomp)
 (require 'cl-lib)
-
 (require 'dash)
 
 (defvar iwds-directory (file-name-directory
                         (or byte-compile-current-file
                             load-file-name
                             buffer-file-name)))
-(defvar iwds-xml-file     (expand-file-name "iwds.xml" iwds-directory))
+(defvar iwds-xml-file)
+  (setq iwds-xml-file (expand-file-name "iwds.xml" iwds-directory))
 (defvar iwds-xml-data     nil)
-(defvar iwds-id-table     (make-hash-table :test 'equal))
-(defvar iwds-ucv-html     (expand-file-name "ucv.html" iwds-directory))
-(defvar iwds-nucv-html    (expand-file-name "nucv.html" iwds-directory))
-(defvar iwds-ucv-summary-html  (expand-file-name "ucv-summary.html" iwds-directory))
-(defvar iwds-nucv-summary-html (expand-file-name "nucv-summary.html" iwds-directory))
+(defvar iwds-id-table (make-hash-table :test 'equal))
+(defvar iwds-ucv-html)
+  (setq iwds-ucv-html (expand-file-name "ucv.html" iwds-directory))
+(defvar iwds-nucv-html)
+  (setq iwds-nucv-html (expand-file-name "nucv.html" iwds-directory))
+(defvar iwds-ucv-summary-html)
+  (setq iwds-ucv-summary-html (expand-file-name "ucv-summary.html" iwds-directory))
+(defvar iwds-nucv-summary-html)
+  (setq iwds-nucv-summary-html (expand-file-name "nucv-summary.html" iwds-directory))
+
 (defvar iwds-main-buffer  nil)
 (defvar iwds-toc-buffer   nil)
 (defvar iwds-regexp       nil)
@@ -317,3 +322,5 @@
 ;; time-stamp-pattern: "10/Version:\\\\?[ \t]+1.%02y%02m%02d\\\\?\n"
 ;; eval: (hide-sublevels 5)
 ;; End:
+
+;;; iwds.el ends here

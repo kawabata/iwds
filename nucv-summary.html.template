@@ -7,13 +7,9 @@
   <link rel='stylesheet' type='text/css' href='iwds-summary.css' />
   </head>
 <body data-type="book">
-  <section data-type="titlepage">
-    <h1> UCS Ideograph Non-Unifiable Component Variations List (NUCV) </h1>
-    <h2 data-type="author">ISO/IEC JTC 1/SC 2/WG 2 IRG</h2>
-    <h3><!--date--></h3>
-  </section>
-  <section data-type='chapter' id='main'>
+  <h1> UCS Ideograph Non-Unifiable Component Variations Summary List (NUCV) </h1>
+  <h2 data-type="author">ISO/IEC JTC 1/SC 2/WG 2 IRG</h2>
+  <h3><!--date--></h3>
   <!--main-->
-</section>
 </body>
 </html>
