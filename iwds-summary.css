@@ -5,7 +5,8 @@
 }
 
 body {
-    margin-left: 0;
+  margin-left: 0;
+  font-family: "Times New Roman", "Hanazono Mincho A", "Hanazono Mincho B";
 }
 
 /* Table settings */
