@@ -7,16 +7,19 @@
   <link rel='stylesheet' type='text/css' href='iwds-summary.css' />
   </head>
 <body data-type="book">
-  <h1>UCS Ideograph Unifiable Component Variations List</h1>
-  <h2 data-type="author">ISO/IEC JTC 1/SC 2/WG 2 IRG</h2>
+  <section data-type="titlepage">
+    <h1>UCS Ideograph Unifiable Component Variations Summary List (UCV)</h1>
+    <h2 data-type="author">ISO/IEC JTC 1/SC 2/WG 2 IRG</h2>
+    <h3><!--date--></h3>
+  </section>
   <nav data-type='toc'>
     <h2>Table of Contents</h2>
     <ol type='I'>
       <!--toc-->
     </ol>
   </nav>
-  <div>
-  <!--main-->
-  </div>
+  <section data-type='chapter' id='main'>
+    <!--main-->
+  </section>
 </body>
 </html>
