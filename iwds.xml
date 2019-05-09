@@ -1325,8 +1325,11 @@
         <disunified>會㑹,繪𦅩</disunified>
       </entry>
       <entry id="188a" kind="unifiable">
-        <glyphs>u96e8-03.u96e8-03-itaiji-012</glyphs>
+        <glyphs>u96e8-03,u96e8-03-itaiji-012</glyphs>
         <components>雨</components>
+        <note><![CDATA[
+        Only for rain.
+        ]]></note>
         <ReviewSystem>https://hc.jsecs.org/irg/ws2017/app/index.php?id=04625</ReviewSystem>
       </entry>
     </subgroup>

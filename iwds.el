@@ -6,7 +6,7 @@
 ;; Package-Requires: ((emacs "24.3") (dash "1.0.0"))
 ;; Description: IRG Working Documents Standards
 ;; Author: KAWABATA, Taichi <kawabata.taichi_at_gmail.com>
-;; Version: 1.170803
+;; Version: 1.190510
 ;; Keywords: i18n languages tools
 ;; Human-Keywords: Ideographic Rapporteur Group
 ;; URL: https://github.com/kawabata/iwds
@@ -183,7 +183,12 @@
         (insert "
       <hr width='90%' size=4/>
       <h4>Note</h4>"
-        note))
+                note))
+      (-when-let (url (assoc-default :ReviewSystem entry))
+        (insert "
+      <hr width='90%' size=4/>
+      <h4>Review System</h4>
+      <a href='" url "'>" url "</a>"))
       (insert "
     </td>
   </tr>")))))
@@ -253,6 +258,7 @@
       (:unified . ,(iwds-parse-chars ,.'unified))
       (:duplicates . ,(iwds-parse-char-lists ,.'duplicates))
       (:note . ,,.'note)
+      (:ReviewSystem . ,,.'ReviewSystem)
       )))
 
 (defun iwds-proc-ucv-chars-list (chars-list)
