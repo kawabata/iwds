@@ -255,7 +255,7 @@
         <unified>判叛頖</unified>
       </entry>
       <entry id="39" kind="unifiable">
-        <glyphs>u536f-03,cdp-8c69</glyphs>
+        <glyphs>u536f-03,cdp-8c69.cdp-8c69-var-007</glyphs>
         <components>卯</components>
         <jis>23</jis>
         <unified>鎦鶹𢞭</unified>
@@ -1042,6 +1042,10 @@
         <components>北</components>
         <compatibles>北</compatibles>
       </entry>
+      <entry id="151a" kind="unifiable">
+        <glyphs>u8fb2,u2d192</glyphs>
+        <components>農𭆒</components>
+      </entry>
     </subgroup>
   </group>
   <group id="c" en="c. Differences in contact of strokes">
@@ -1119,7 +1123,7 @@
         <compatibles>龜</compatibles>
       </entry>
       <entry id="161" kind="unifiable">
-        <glyphs>u20041,u20041-var-001,koseki-001020,u20041-var-002,u20041-ue0101</glyphs>
+        <glyphs>u20041,u20041-var-001,koseki-001020,u20041-var-002,u20041-ue0101,u2ff1-u2ff0-u5915-u53e3-u4e9e,u20a23-var-001</glyphs>
         <components>𠁁</components>
         <jis>193</jis>
         <SourceCodeSeparation>鬬鬭</SourceCodeSeparation>
@@ -1127,7 +1131,7 @@
       </entry>
       <entry id="162" kind="unifiable">
         <glyphs>u268dd,u268de,u2ff0-u4e3f-u81e3</glyphs>
-        <components>𦣝𦣞⿰丿臣</components>
+        <components>𦣝𦣞⿰㇓臣</components>
         <jis>90</jis>
         <disunified>𦣝𦣞</disunified>
         <SourceCodeSeparation>煕熙</SourceCodeSeparation>
@@ -1195,10 +1199,13 @@
         <compatibles>掩淹裺𦋙</compatibles>
       </entry>
       <entry id="173" kind="unifiable">
-        <glyphs>koseki-336780,aj1-06295,u3b30</glyphs>
+        <glyphs>koseki-336780,aj1-06295,u3b30,cdp-89e7</glyphs>
         <components>臾㬰</components>
         <disunified>斔螤,臾㬰,𥑷𥔢,𧊠𧍳,𪀙𪃪</disunified>
         <compatibles>瘐𡓤𣢧</compatibles>
+        <note><![CDATA[
+        Added for IRG#52.
+        ]]></note>
       </entry>
       <entry id="174" kind="unifiable">
         <glyphs>u5de2,u2f882</glyphs>
@@ -1646,8 +1653,8 @@
         <unified>亇</unified>
       </entry>
       <entry id="232" kind="unifiable">
-        <glyphs>u5c13,u5c14</glyphs>
-        <components>尓尔</components>
+        <glyphs>u5c13,u5c14.u5c12</glyphs>
+        <components>尓尔尒</components>
         <annexs>S.3</annexs>
         <jis>31</jis>
         <disunified>𣍨𦙳,𧦽𧧂,𤱏𬏂</disunified>
@@ -2953,6 +2960,10 @@
         <glyphs>u5947,u7ad2</glyphs>
         <components>奇竒</components>
         <ReviewSystem>https://hc.jsecs.org/irg/ws2017/app/index.php?id=04182</ReviewSystem>
+      </entry>
+      <entry id="425" kind="unifiable">
+        <glyphs>u4e45,u4e46</glyphs>
+        <components>久乆</components>
       </entry>
     </subgroup>
   </group>

@@ -6,7 +6,7 @@
 ;; Package-Requires: ((emacs "24.3") (dash "1.0.0"))
 ;; Description: IRG Working Documents Standards
 ;; Author: KAWABATA, Taichi <kawabata.taichi_at_gmail.com>
-;; Version: 1.190510
+;; Version: 1.191019
 ;; Keywords: i18n languages tools
 ;; Human-Keywords: Ideographic Rapporteur Group
 ;; URL: https://github.com/kawabata/iwds
@@ -237,28 +237,28 @@
 
 (defun iwds-proc-entry (xml-data)
   "Create entry data from XML-DATA."
-  (cl-labels ((\,. (key) (cl-caddr (assoc key xml-data))))
+  (cl-labels ((r (key) (cl-caddr (assoc key xml-data))))
     `((:glyphs .
-       ,(split-string ,.'glyphs "," t))
-      (:components . ,(iwds-parse-chars ,.'components))
+       ,(split-string (r 'glyphs) "," t))
+      (:components . ,(iwds-parse-chars (r 'components)))
       (:compatibles
        ;; ((<unified ideograph>  <compatibility ideograph>)....)
-       .,(mapcar
+       . ,(r (mapcar
           (lambda (char)
             (let* ((decomp
                     (car
                      (get-char-code-property (or (cdr-safe char) char) 'decomposition))))
               (list (if (consp char) (cons (car char) decomp) decomp)
                     char)))
-          (iwds-parse-chars ,.'compatibles)))
-      (:jis . ,,.'jis)
-      (:hydcd . ,,.'hydcd)
-      (:disunified . ,(iwds-parse-char-lists ,.'disunified))
-      (:scs . ,(iwds-parse-char-lists ,.'SourceCodeSeparation))
-      (:unified . ,(iwds-parse-chars ,.'unified))
-      (:duplicates . ,(iwds-parse-char-lists ,.'duplicates))
-      (:note . ,,.'note)
-      (:ReviewSystem . ,,.'ReviewSystem)
+          (iwds-parse-chars (r 'compatibles)))))
+      (:jis . ,(r 'jis))
+      (:hydcd . ,(r 'hydcd))
+      (:disunified . ,(iwds-parse-char-lists (r 'disunified)))
+      (:scs . ,(iwds-parse-char-lists (r 'SourceCodeSeparation)))
+      (:unified . ,(iwds-parse-chars (r 'unified)))
+      (:duplicates . ,(iwds-parse-char-lists (r 'duplicates)))
+      (:note . ,(r 'note))
+      (:ReviewSystem . ,(r 'ReviewSystem))
       )))
 
 (defun iwds-proc-ucv-chars-list (chars-list)
