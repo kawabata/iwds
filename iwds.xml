@@ -2131,6 +2131,7 @@
         <glyphs>u5369,u536a</glyphs>
         <components>卩卪</components>
       </entry>
+<<<<<<< HEAD
       <entry id="298d" kind="unifiable">
         <glyphs>u7384,u248e5</glyphs>
         <components>玄𤣥</components>
@@ -2154,6 +2155,8 @@
         <components>條𭛹</components>
         <note>IRGN2407</note>
       </entry>
+=======
+>>>>>>> bd8cb2d158799116a38bd1968ca03695caff97ac
   </group>
   <group id="j" en="j. Miscellaneous">
     <subgroup id="j-1" en="j-1. Differences of single stroke or separated two strokes">
@@ -3038,11 +3041,14 @@
         <glyphs>u2ff1-u516b-u5902-04,u2ff1-u5c0f-u53c8-04</glyphs>
         <components>⿱八夂⿱小又</components>
       </entry>
+<<<<<<< HEAD
       <entry id="430" kind="unifiable">
         <glyphs>u6c35,u6c3a-01</glyphs>
         <components>氵氺</components>
         <note>IRGN2407</note>
       </entry>
+=======
+>>>>>>> bd8cb2d158799116a38bd1968ca03695caff97ac
     </subgroup>
   </group>
 </ucv>
